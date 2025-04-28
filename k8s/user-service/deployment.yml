@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-service
+  template:
+    metadata:
+      labels:
+        app: user-service
+    spec:
+      containers:
+      - name: user-service
+        image: user-service:latest5
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+        env:
+        - name: MONGO_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: mongodb-config
+              key: MONGO_HOST
+        - name: MONGO_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: mongodb-config
+              key: MONGO_PORT
+        - name: MONGO_DBNAME
+          valueFrom:
+            configMapKeyRef:
+              name: mongodb-config
+              key: MONGO_DBNAME
+        - name: MONGO_USER
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-secret
+              key: MONGO_USER
+        - name: MONGO_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-secret
+              key: MONGO_PASSWORD
+
