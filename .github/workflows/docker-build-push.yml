@@ -20,21 +20,21 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
       
     - name: Build and push User service image
-      uses: docker/docker/build-push-action@v5
+      uses: docker/build-push-action@v5
       with:
         context: /home/diksha/ecommerce/ecommerce-microservice/services/user-service
         push: true
         tags: diksha307/user-service:latest
         
     - name: Build and push Product service image
-      uses: docker/docker/build-push-action@v5
+      uses: docker/build-push-action@v5
       with:
         context: /home/diksha/ecommerce/ecommerce-microservice/services/product-service
         push: true
         tags: diksha307/product-service:latest
         
     - name: Build and push order service image
-      uses: docker/docker/build-push-action@v5
+      uses: docker/build-push-action@v5
       with:
         context: /home/diksha/ecommerce/ecommerce-microservice/services/order-service
         push: true
