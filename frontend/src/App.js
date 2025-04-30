@@ -27,6 +27,14 @@ return (
 <div style={{ padding: '2rem'}}>
 <h1>E-commerce dashoard</h1>
 <p><strong>User service:</strong>{userData}</p>
+<p><strong>User service:</strong></p>
+<ul>
+  {JSON.parse(userData).users.map((user) => (
+    <li key={user._id?.$oid}>
+      {user.username} - {user.email}
+    </li>
+  ))}
+</ul>
 <p><strong>Product service:</strong>{productData}</p>
 <p><strong>Order service:</strong>{orderData}</p>
 </div>
