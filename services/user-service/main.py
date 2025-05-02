@@ -41,6 +41,7 @@ def root():
 
 @app.get("/users")
 async def get_users():
+    print("Accessing /users endpoint")
     users=[]
     cursor=db.users.find()
     async for document in cursor:

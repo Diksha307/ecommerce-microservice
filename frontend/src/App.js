@@ -6,9 +6,12 @@ function App() {
   const [orderMessage, setOrderMessage] = useState('');
 
   useEffect(() => {
-    fetch('http://192.168.49.2/users')
+    fetch('http://192.168.49.2/users/users')
       .then(res => res.json())
-      .then(data => setUserData(data.users || []))
+      .then(data => {
+      console.log(data); 
+      setUserData(data.users || []);
+      })
       .catch(err => setUserData([{ username: "Error", email: "Fetching users" }]));
 
     fetch('http://192.168.49.2/products')
@@ -29,11 +32,14 @@ function App() {
       <section style={{ marginBottom: '2rem' }}>
         <h2>User Service</h2>
         <ul>
-          {userData.map(user => (
+          {userData.map(user =>{
+          console.log(user);
+           return (
             <li key={user._id?.$oid || user.username}>
               <strong>{user.username}</strong> — {user.email}
             </li>
-          ))}
+          );
+          })}
         </ul>
       </section>
 
