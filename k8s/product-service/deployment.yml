@@ -15,6 +15,6 @@ spec:
       containers:
       - name: product-service
         image: diksha307/product-service:latest
-        imagePullPolicy: Never
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
