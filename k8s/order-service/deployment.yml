@@ -15,6 +15,6 @@ spec:
       containers:
       - name: order-service
         image: diksha307/order-service:latest
-        imagePullPolicy: Never
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
