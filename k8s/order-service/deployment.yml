@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: order-service
-        image: diksha307/order-service:latest
+        image: docker.io/diksha307/order-service:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80

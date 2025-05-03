@@ -35,9 +35,11 @@ users = [
 {"username":"bob", "email":"bob@example.com"}
 ]
 
+'''
 @app.get("/")
 def root():
     return {"message":"User service is running"}
+'''
 
 @app.get("/users")
 async def get_users():
